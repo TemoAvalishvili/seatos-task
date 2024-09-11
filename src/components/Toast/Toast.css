@@ -1,0 +1,37 @@
+.toast {
+  position: fixed;
+  right: 20px;
+  transition: all 0.3s;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 5px;
+  z-index: 1000;
+  max-width: 300px;
+  animation: fadeIn 0.5s;
+}
+
+.toast.success {
+  background-color: #28a745;
+  color: white;
+}
+.toast.error {
+  background-color: #dc3545;
+  color: white;
+}
+.toast.info {
+  background-color: #17a2b8;
+  color: white;
+}
+.toast.warning {
+  background-color: #ffc107;
+  color: black;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
