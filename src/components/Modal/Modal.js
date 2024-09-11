@@ -15,11 +15,12 @@ const Modal = ({ isOpen, onClose, title, children, size = "medium" }) => {
     };
   }, [onClose]);
 
-  if (!isOpen) return null;
-
   return (
-    <div className="modal-overlay" onClick={onClose}>
-      <div className={`modal ${size}`} onClick={(e) => e.stopPropagation()}>
+    <div className={`modal-overlay ${isOpen ? "open" : ""}`} onClick={onClose}>
+      <div
+        className={`modal ${size} ${isOpen ? "open" : ""}`}
+        onClick={(e) => e.stopPropagation()}
+      >
         <div className="modal-header">
           <h2>{title}</h2>
           <button className="modal-close" onClick={onClose}>

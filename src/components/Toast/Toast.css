@@ -1,27 +1,36 @@
-.toast {
+/* Toast.css */
+.toast-container {
   position: fixed;
   right: 20px;
-  transition: all 0.3s;
+  top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 1000;
+}
+
+.toast {
   padding: 10px;
   border-radius: 5px;
-  margin: 5px;
-  z-index: 1000;
-  max-width: 300px;
   animation: fadeIn 0.5s;
+  min-width: 300px;
 }
 
 .toast.success {
   background-color: #28a745;
   color: white;
 }
+
 .toast.error {
   background-color: #dc3545;
   color: white;
 }
+
 .toast.info {
   background-color: #17a2b8;
   color: white;
 }
+
 .toast.warning {
   background-color: #ffc107;
   color: black;
@@ -30,8 +39,10 @@
 @keyframes fadeIn {
   from {
     opacity: 0;
+    transform: translateY(-20px);
   }
   to {
     opacity: 1;
+    transform: translateY(0);
   }
 }

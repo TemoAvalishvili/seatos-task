@@ -38,3 +38,64 @@
     transform: rotate(360deg);
   }
 }
+.button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  margin: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.button.success {
+  background-color: #28a745;
+  color: white;
+}
+
+.button.error {
+  background-color: #dc3545;
+  color: white;
+}
+
+.button.info {
+  background-color: #17a2b8;
+  color: white;
+}
+
+.button.warning {
+  background-color: #ffc107;
+  color: black;
+}
+
+.button:hover {
+  opacity: 0.8;
+}
+
+.modal-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.modal-button {
+  padding: 12px 24px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.modal-button:hover {
+  background-color: #0056b3;
+}

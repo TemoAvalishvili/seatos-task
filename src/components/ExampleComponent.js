@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import useToast from "../hooks/useToast"; // Changed here
-import Toast from "./Toast/Toast";
-import Modal from "./Modal/Modal";
+import React from "react";
+import useToast from "../hooks/useToast";
+import Toast from "../components/Toast/Toast";
+import Modal from "../components/Modal/Modal";
 
 const ExampleComponent = () => {
   const { toasts, showToast } = useToast();
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = React.useState(false);
 
   const handleClick = (status) => {
     showToast({
@@ -22,26 +22,57 @@ const ExampleComponent = () => {
 
   return (
     <div>
-      <button onClick={() => handleClick("success")}>Show Success Toast</button>
-      <button onClick={() => handleClick("error")}>Show Error Toast</button>
-      <button onClick={() => handleClick("info")}>Show Info Toast</button>
-      <button onClick={() => handleClick("warning")}>Show Warning Toast</button>
-      <button onClick={openModal}>Open Modal</button>
+      <h1>Toast Notification Example</h1>
 
-      {/* Render toasts */}
-      {toasts.map((toast) => (
-        <Toast key={toast.id} toast={toast} />
-      ))}
+      <div className="button-container">
+        <button
+          className="button success"
+          onClick={() => handleClick("success")}
+        >
+          Show Success Toast
+        </button>
+        <button className="button error" onClick={() => handleClick("error")}>
+          Show Error Toast
+        </button>
+        <button className="button info" onClick={() => handleClick("info")}>
+          Show Info Toast
+        </button>
+        <button
+          className="button warning"
+          onClick={() => handleClick("warning")}
+        >
+          Show Warning Toast
+        </button>
+      </div>
 
-      {/* Render modal */}
+      <h1>Modal Example</h1>
+
+      <div className="modal-button-container">
+        <button className="modal-button" onClick={openModal}>
+          Open Modal
+        </button>
+      </div>
+
+      <div className="toast-container">
+        {toasts.map((toast) => (
+          <Toast
+            key={toast.id}
+            toast={toast}
+            className={`toast ${toast.status}`}
+          />
+        ))}
+      </div>
+
       <Modal
         isOpen={isModalOpen}
         onClose={closeModal}
-        title="My Modal"
+        title="Modal"
         size="medium"
       >
-        <p>This is the body content of the modal.</p>
-        <button onClick={() => alert("Confirmed")}>Confirm</button>
+        Modal body for different content
+        <button className="modal-button" onClick={() => alert("Confirmed")}>
+          Confirm
+        </button>
       </Modal>
     </div>
   );
